@@ -1,3 +1,5 @@
+using Application.Activities;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -23,6 +25,9 @@ builder.Services.AddCors(opt =>
               .WithOrigins("http://localhost:3000");
     });
 });
+
+builder.Services.AddMediatR(typeof(List.Handler));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
